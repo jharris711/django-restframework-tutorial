@@ -1,8 +1,6 @@
 from django.urls import include, path
-from . import views
 
 urlpatterns = [
-    path('', views.api_root),
-    path('snippets/<int:pk>/highlight/', views.SnippetHighlight.as_view()),
+    path('', include('snippets.urls')),
     path('api-auth/', include('rest_framework.urls')),
 ]
